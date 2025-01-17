@@ -30,5 +30,39 @@ services:
 
 
 
+  celery_worker:
+    container_name: celery_worker
+    build: .
+    command: sh -c "celery -A core worker -l INFO"
+    depends_on:
+      - app
+    environment:
+      - TZ=Asia/Tehran
+      - C_FORCE_ROOT=true
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    networks:
+      - main
+    restart: on-failure
+    volumes:
+      - .:/code/back/
+
+
+  celery_beat:
+    container_name: celery_beat
+    build: .
+    command: "celery -A core beat -l info"
+    networks:
+      - main
+    depends_on:
+      - app
+    environment:
+      - TZ=Asia/Tehran
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    restart: on-failure
+    volumes:
+      - .:/code/back/
+
+
+
 networks:
   main:

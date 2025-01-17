@@ -1,3 +1,10 @@
+import json
+import random
+from decouple import config
+from redis import Redis
+
+redis_connection = Redis(host=config('REDIS_HOST'), port=config('REDIS_PORT'), decode_responses=True)
+
 def generate_random_token() -> str:
     try:
         token = random.randint(10000, 99999)

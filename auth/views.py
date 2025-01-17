@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .utils import generate_random_token
+from .utils import generate_random_token, add_dict_to_redis
 
 
 class UserRegistrationView(APIView):

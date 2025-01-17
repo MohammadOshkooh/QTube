@@ -16,6 +16,17 @@ services:
       - TZ=Asia/Tehran
     restart: on-failure
 
+  redis:
+    container_name: docker.arvancloud.ir/redis
+    image: redis:7.2
+    ports:
+      - "6379:3679"
+    restart: on-failure
+    environment:
+      - TZ=Asia/Tehran
+    networks:
+      - main
+
 
 
 

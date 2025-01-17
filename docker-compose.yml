@@ -6,6 +6,7 @@ services:
 
     volumes:
       - .:/code/back/
+        - static_volume:/code/back/statics/
     ports:
       - "8002:8002"
     networks:
@@ -33,6 +34,7 @@ services:
     image: docker.arvancloud.ir/postgres:16.1
     volumes:
       - postgres_data:/var/lib/postgresql/data
+        - static_volume:/code/back/statics/
     environment:
       - TZ=Asia/Tehran
       - POSTGRES_USER=postgres
@@ -77,7 +79,29 @@ services:
     restart: on-failure
     volumes:
       - .:/code/back/
+        - static_volume:/code/back/statics/
 
+
+  nginx:
+    container_name: nginx
+    command: nginx -g 'daemon off;'
+    depends_on:
+      - app
+    image: docker.arvancloud.ir/nginx:1.25
+    networks:
+      - main
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ=Asia/Tehran
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt/:/etc/letsencrypt/
+      - static_volume:/statics/
+
+    mem_limit: 1gb
 
 
 networks:
@@ -85,3 +109,4 @@ networks:
 
 volumes:
   postgres_data:
+  static_volume:

@@ -5,6 +5,7 @@ from redis import Redis
 
 redis_connection = Redis(host=config('REDIS_HOST'), port=config('REDIS_PORT'), decode_responses=True)
 
+
 def generate_random_token() -> str:
     try:
         token = random.randint(10000, 99999)
@@ -13,7 +14,6 @@ def generate_random_token() -> str:
         return str(token)
     except Exception as e:
         return f"error: {str(e)}"
-
 
 
 def add_dict_to_redis(key: str, value: [dict, list], *args, **kwargs) -> bool:
@@ -36,3 +36,6 @@ def delete_item_from_redis(key: str) -> bool:
     except:
         return False
 
+
+def send_token(email: str, token: str) -> bool:
+    print(token)

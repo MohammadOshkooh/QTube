@@ -1,11 +1,12 @@
 from .serializers import LoginSerializer, RegisterSerializer, PasswordResetConfirmSerializer, \
     PasswordResetRequestSerializer
-from rest_framework import status,
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+from .models import User
 
-from .utils import generate_random_token, add_dict_to_redis
+from .utils import generate_random_token, add_dict_to_redis, send_token, get_dict_from_redis, delete_item_from_redis
 
 
 class UserRegistrationView(APIView):

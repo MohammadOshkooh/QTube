@@ -2,7 +2,7 @@ services:
   app:
     container_name: app
     build: .
-    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn core.wsgi:application -c gunicorn_config.conf"
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn core.wsgi:application -c gunicorn_config.conf --reload"
 
     volumes:
       - .:/code/back/

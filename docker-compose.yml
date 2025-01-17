@@ -1,0 +1,23 @@
+services:
+  app:
+    container_name: app
+    build: .
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn core.wsgi:application -c gunicorn_config.conf"
+
+    volumes:
+      - .:/code/back/
+    ports:
+      - "8002:8002"
+    networks:
+      - main
+    env_file:
+      - ./.env
+    environment:
+      - TZ=Asia/Tehran
+    restart: on-failure
+
+
+
+
+networks:
+  main:

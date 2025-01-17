@@ -17,8 +17,8 @@ services:
     restart: on-failure
 
   redis:
-    container_name: docker.arvancloud.ir/redis
-    image: redis:7.2
+    container_name: redis
+    image: docker.arvancloud.ir/redis:7.2
     ports:
       - "6379:3679"
     restart: on-failure

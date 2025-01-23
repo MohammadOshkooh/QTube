@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "de8d75c3-963a-4e1a-8c5a-544f96566b7f",
+		"name": "QTube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25063387",
+		"_collection_link": "https://restless-moon-208717.postman.co/workspace/My-Workspace~778ede35-701d-4bae-83e2-c560f51e8a96/collection/25063387-de8d75c3-963a-4e1a-8c5a-544f96566b7f?action=share&source=collection_link&creator=25063387"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mohammad",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "s@s.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "FEF$Ffd4",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "FEF$Ffd4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/auth/register/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mohammad",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "FEF$Ffd4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/auth/login/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -15,7 +15,7 @@ class UserRegistrationView(APIView):
 
         if serializer.is_valid():
             new_user = serializer.save()
-            new_user.set_password(serializer.data['password'])
+            # new_user.set_password(serializer.data['password'])
             new_user.save()
 
             refresh = RefreshToken.for_user(new_user)
@@ -33,8 +33,6 @@ class UserRegistrationView(APIView):
 
 class UserLoginView(APIView):
     def post(self, request):
-        print(request.data)
-        print(request.POST)
         serializer = LoginSerializer(data=request.data)
 
         if serializer.is_valid():

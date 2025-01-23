@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+from datetime import timedelta
 from pathlib import Path
 
 from decouple import config
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_yasg',
+    'rest_framework.authtoken',
 
     'account',
     'qtube',
@@ -151,3 +152,9 @@ broker_connection_retry_on_startup = True
 CELERY_RESULT_BACKEND = config('CELERY_RESULT_URL')
 CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 celery_result_backend = CELERY_BROKER_URL
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=180),
+
+}

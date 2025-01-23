@@ -13,7 +13,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         validators=[UniqueValidator(queryset=User.objects.all())]
     )
     password = serializers.CharField(
-        write_only=True,
+        # write_only=True,
         required=True,
         validators=[validate_password],
         style={'input_type': 'password'}
@@ -26,7 +26,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'confirm_password', 'first_name', 'last_name', 'birth_date')
+        fields = ('username', 'email', 'password', 'confirm_password', 'birth_date')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['confirm_password']:
@@ -39,8 +39,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             email=validated_data['email'],
             password=validated_data['password'],
-            first_name=validated_data.get('first_name', ''),
-            last_name=validated_data.get('last_name', ''),
             birth_date=validated_data.get('birth_date')
         )
         return user
@@ -49,7 +47,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(
-        write_only=True,
+        # write_only=True,
         required=True,
         style={'input_type': 'password'}
     )
@@ -59,9 +57,12 @@ class LoginSerializer(serializers.Serializer):
         password = attrs.get('password')
 
         if username and password:
-            user = authenticate(request=self.context.get('request'), username=username, password=password)
+            user = User.objects.filter(username=username).first()
             if not user:
-                raise serializers.ValidationError("Invalid credentials.")
+                raise serializers.ValidationError({"username": _("Username or password is incorrect.")})
+
+            if not user.check_password(password):
+                raise serializers.ValidationError({'message': "Incorrect password"})
         else:
             raise serializers.ValidationError("Must include both username and password.")
 

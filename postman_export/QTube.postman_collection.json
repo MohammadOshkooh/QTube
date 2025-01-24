@@ -99,6 +99,124 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "app",
+			"item": [
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8002/categories/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3NzU2MDI1LCJpYXQiOjE3Mzc2Njk2MjUsImp0aSI6IjhjZjU4MmI5MjViYzQ1ZGNhYTA2Y2UyOTVjZjFmMDZlIiwidXNlcl9pZCI6OH0.SwLnScFjmxyuvfMbDZlBSBKE1pOmyLOiRTeLCdoxP-s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/mohammad/Videos/2025-01-05-16:42:15.858635698.mkv"
+								},
+								{
+									"key": "category",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"description": "Optional",
+									"type": "file",
+									"src": "/home/mohammad/Pictures/Screenshots/Screenshot from 2025-01-24 01-09-00.png",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "this is nkvodj bvjdbbv ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/upload/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"upload",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-videos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3NzU2MDI1LCJpYXQiOjE3Mzc2Njk2MjUsImp0aSI6IjhjZjU4MmI5MjViYzQ1ZGNhYTA2Y2UyOTVjZjFmMDZlIiwidXNlcl9pZCI6OH0.SwLnScFjmxyuvfMbDZlBSBKE1pOmyLOiRTeLCdoxP-s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://0.0.0.0:8002/my-videos/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"my-videos",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

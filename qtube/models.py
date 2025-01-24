@@ -11,6 +11,8 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+
 class Video(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
@@ -21,6 +23,11 @@ class Video(models.Model):
     views = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    processing_status = models.CharField(
+        max_length=20,
+        choices=[('pending', 'Pending'), ('processing', 'Processing'), ('completed', 'Completed')],
+        default='pending'
+    )
 
     def __str__(self):
         return self.title
@@ -31,6 +38,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
 
 class Like(models.Model):
     video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='likes')

@@ -24,7 +24,7 @@ class UserRegistrationView(APIView):
 
             return Response(
                 {'message': "Congratulations, your account has been successfully created.", "access": access_code,
-                 "refresh": refresh_code, "is_valid": True}, status=status.HTTP_200_OK)
+                 "refresh": refresh_code}, status=status.HTTP_200_OK)
 
         else:
 
@@ -42,7 +42,7 @@ class UserLoginView(APIView):
             access_code = str(refresh.access_token)
 
             return Response(
-                {'message': "Login successful.", "access": access_code, "refresh": refresh_code, "is_valid": True},
+                {'message': "Login successful.", "access": access_code, "refresh": refresh_code},
                 status=status.HTTP_200_OK)
         else:
             return Response({'message': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

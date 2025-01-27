@@ -1,12 +1,12 @@
 # views.py
 from django.db.models import Q
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from .models import Video, Category
-from .serializers import VideoSerializer, CommentSerializer, CategorySerializer
+from .serializers import VideoSerializer, CategorySerializer
 from .tasks import convert_video_to_mp4
 
 
@@ -41,15 +41,6 @@ class VideoSearchView(ListAPIView):
         return Video.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
 
 
-class CommentView(APIView):
-    def post(self, request):
-        serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
-
 class GetVideoByCategoryListView(ListAPIView):
     serializer_class = VideoSerializer
 
@@ -63,3 +54,9 @@ class CategoryListView(ListAPIView):
 
     def get_queryset(self):
         return Category.objects.all()
+
+
+class CreateCategory(CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

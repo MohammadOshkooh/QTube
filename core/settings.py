@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'account',
     'qtube',
+    'comment',
 ]
 
 MIDDLEWARE = [
@@ -154,7 +155,7 @@ CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 celery_result_backend = CELERY_BROKER_URL
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=180),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=180*10),
 
 }

@@ -33,13 +33,6 @@ class Video(models.Model):
         return self.title
 
 
-class Comment(models.Model):
-    video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    text = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
 class Like(models.Model):
     video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='likes')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

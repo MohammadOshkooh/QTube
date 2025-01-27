@@ -1,10 +1,9 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Video, Comment, Category
+from .models import Video, Category
 
 
 class VideoSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Video
         fields = [
@@ -21,12 +20,6 @@ class VideoSerializer(serializers.ModelSerializer):
                 "Unsupported file format. Supported formats: " + ", ".join(allowed_formats)
             )
         return value
-
-
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ['id', 'video', 'user', 'text', 'created_at']
 
 
 class CategorySerializer(serializers.ModelSerializer):

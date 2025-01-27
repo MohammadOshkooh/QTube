@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Category, Video
-from .models import Like
 
 
 @admin.register(Category)
@@ -17,8 +16,3 @@ class VideoAdmin(admin.ModelAdmin):
     readonly_fields = ('views',)
 
 
-@admin.register(Like)
-class LikeAdmin(admin.ModelAdmin):
-    list_display = ('user', 'video', 'created_at')
-    list_filter = ('created_at', 'video')
-    search_fields = ('user__username', 'video__title')

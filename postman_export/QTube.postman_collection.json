@@ -104,7 +104,7 @@
 			"name": "app",
 			"item": [
 				{
-					"name": "categories",
+					"name": "get categories",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -127,13 +127,53 @@
 					"response": []
 				},
 				{
+					"name": "create new category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/categories/create/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"categories",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "upload",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3NzU2MDI1LCJpYXQiOjE3Mzc2Njk2MjUsImp0aSI6IjhjZjU4MmI5MjViYzQ1ZGNhYTA2Y2UyOTVjZjFmMDZlIiwidXNlcl9pZCI6OH0.SwLnScFjmxyuvfMbDZlBSBKE1pOmyLOiRTeLCdoxP-s",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
 								"type": "text"
 							}
 						],
@@ -142,7 +182,7 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "test",
+									"value": "testdddd",
 									"type": "text"
 								},
 								{
@@ -159,12 +199,11 @@
 									"key": "thumbnail",
 									"description": "Optional",
 									"type": "file",
-									"src": "/home/mohammad/Pictures/Screenshots/Screenshot from 2025-01-24 01-09-00.png",
-									"disabled": true
+									"src": "/home/mohammad/Pictures/Screenshots/Screenshot from 2025-01-27 15-39-02.png"
 								},
 								{
 									"key": "description",
-									"value": "this is nkvodj bvjdbbv ",
+									"value": "FFFF",
 									"type": "text"
 								}
 							]
@@ -194,7 +233,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM3NzU2MDI1LCJpYXQiOjE3Mzc2Njk2MjUsImp0aSI6IjhjZjU4MmI5MjViYzQ1ZGNhYTA2Y2UyOTVjZjFmMDZlIiwidXNlcl9pZCI6OH0.SwLnScFjmxyuvfMbDZlBSBKE1pOmyLOiRTeLCdoxP-s",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
 								"type": "text"
 							}
 						],
@@ -210,6 +249,123 @@
 							"port": "8002",
 							"path": [
 								"my-videos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8002/search?q=t",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "t"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "add new comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "hi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/comments/create/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"comments",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get comments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/comments/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"comments",
 								""
 							]
 						}

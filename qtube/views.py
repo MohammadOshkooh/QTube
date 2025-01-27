@@ -60,3 +60,4 @@ class CreateCategory(CreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+

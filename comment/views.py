@@ -27,8 +27,9 @@ class CommentListView(APIView):
 class CommentCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, video_id):
+    def post(self, request):
         try:
+            video_id = request.data.get('video_id')
             video = Video.objects.get(pk=video_id)
             serializer = CommentSerializer(data=request.data)
             if serializer.is_valid():

@@ -14,12 +14,13 @@ def convert_video_to_mp4(video_id):
         input_file_path = video.file.path
         file_name, file_extension = os.path.splitext(input_file_path)
 
+        print(file_name)
+        print("==============")
+
         output_file_path = f"{file_name}.mp4"
 
         with VideoFileClip(input_file_path) as clip:
             clip.write_videofile(output_file_path, codec="libx264")
-
-        output_file_path.replace("/code/back/media/", '')
 
         video.file.name = file_name + ".mp4"
         video.processing_status = 'completed'

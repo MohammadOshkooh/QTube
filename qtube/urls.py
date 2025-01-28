@@ -9,7 +9,7 @@ urlpatterns = [
     path('search/', VideoSearchView.as_view(
 
     ), name='video-search'),
-    path('category/<int:category_id>/', GetVideoByCategoryListView.as_view(), name='video-by-category-videos'),
+    path('videos/<int:category_id>/', GetVideoByCategoryListView.as_view(), name='video-by-category-videos'),
     path('categories/', CategoryListView.as_view(), name='category-videos'),
     path('categories/create/', CreateCategory.as_view(), name='create-category'),
 

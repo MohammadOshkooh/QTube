@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'log.middlewares.ExceptionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -168,3 +169,13 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=180 * 10),
 
 }
+
+
+
+import logging
+
+logging.basicConfig(
+    filename='log/error.log',
+    level=logging.ERROR,
+    format='%(asctime)s [%(levelname)s]: %(message)s'
+)

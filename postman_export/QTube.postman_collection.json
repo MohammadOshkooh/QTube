@@ -104,69 +104,6 @@
 			"name": "app",
 			"item": [
 				{
-					"name": "get categories",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://0.0.0.0:8002/categories/",
-							"protocol": "http",
-							"host": [
-								"0",
-								"0",
-								"0",
-								"0"
-							],
-							"port": "8002",
-							"path": [
-								"categories",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create new category",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "test",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://0.0.0.0:8002/categories/create/",
-							"protocol": "http",
-							"host": [
-								"0",
-								"0",
-								"0",
-								"0"
-							],
-							"port": "8002",
-							"path": [
-								"categories",
-								"create",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "upload",
 					"request": {
 						"method": "POST",
@@ -508,6 +445,107 @@
 							"port": "8002",
 							"path": [
 								"likes",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8002/categories/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get video by category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/videos/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"videos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/categories/create/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"categories",
+								"create",
 								""
 							]
 						}

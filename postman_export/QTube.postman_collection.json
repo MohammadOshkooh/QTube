@@ -188,7 +188,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/home/mohammad/Videos/2025-01-05-16:42:15.858635698.mkv"
+									"src": "/home/mohammad/Downloads/2025-01-05-164925.825190577.mkv"
 								},
 								{
 									"key": "category",
@@ -366,6 +366,148 @@
 							"port": "8002",
 							"path": [
 								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "video like",
+			"item": [
+				{
+					"name": "add a like",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/likes/add/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"likes",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "undo a like",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/likes/remove/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"likes",
+								"remove",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get video likes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4ODc1NDY4LCJpYXQiOjE3MzgwMTE0NjgsImp0aSI6Ijk0MmQ1NGEzMGVjNDQyZmM4NDkzNjNjN2YxODI1NGRmIiwidXNlcl9pZCI6MX0.Qy0q3SXB0xaDbGESQ9sj4T5k5Ks2m1fusfBDO3hLHcU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8002/likes/",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8002",
+							"path": [
+								"likes",
 								""
 							]
 						}

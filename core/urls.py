@@ -31,9 +31,11 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
-    path('auth/', include('account.urls')),
     path('', include('qtube.urls')),
     path('comments/', include('comment.urls')),
+    path('auth/', include('account.urls')),
+    path('likes/', include('video_like.urls')),
+
 
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"^statics/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),

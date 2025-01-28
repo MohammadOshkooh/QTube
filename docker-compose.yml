@@ -5,8 +5,8 @@ services:
     command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn core.wsgi:application -c gunicorn_config.conf --reload"
 
     volumes:
-        - static_volume:/code/back/statics/
-        - .:/code/back/
+      - static_volume:/code/back/statics/
+      - .:/code/back/
     ports:
       - "8002:8002"
     networks:
@@ -34,7 +34,6 @@ services:
     image: docker.arvancloud.ir/postgres:16.1
     volumes:
       - postgres_data:/var/lib/postgresql/data
-        - static_volume:/code/back/statics/
     environment:
       - TZ=Asia/Tehran
       - POSTGRES_USER=postgres
@@ -108,4 +107,5 @@ networks:
 
 volumes:
   postgres_data:
+    driver: local
   static_volume:

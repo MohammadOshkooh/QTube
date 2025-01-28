@@ -22,7 +22,7 @@ def convert_video_to_mp4(video_id):
         with VideoFileClip(input_file_path) as clip:
             clip.write_videofile(output_file_path, codec="libx264")
 
-        video.file.name = file_name + ".mp4"
+        video.file.name = file_name.replace('/code/back/media/', '') + ".mp4"
         video.processing_status = 'completed'
         video.save()
 

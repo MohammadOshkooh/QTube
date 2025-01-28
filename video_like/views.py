@@ -11,10 +11,15 @@ from video_like.serializers import LikeSerializer
 class LikeListView(APIView):
     permission_classes = [AllowAny]
 
-    def get(self, request, video_id):
+    def post(self, request):
         """
         Retrieve all likes for a given video.
         """
+        try:
+            video_id = request.data.get('video_id')
+        except KeyError:
+            return Response({'error': 'video_id is required.'})
+
         try:
             video = Video.objects.get(pk=video_id)
             likes = video.likes.all()

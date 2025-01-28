@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'account',
     'qtube',
     'comment',
+    'video_like',
 ]
 
 MIDDLEWARE = [

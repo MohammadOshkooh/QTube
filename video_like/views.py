@@ -32,10 +32,15 @@ class LikeListView(APIView):
 class LikeCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, video_id):
+    def post(self, request):
         """
         Add a like to a video by the authenticated user.
         """
+        try:
+            video_id = request.data.get('video_id')
+        except KeyError:
+            return Response({'error': 'video_id is required.'})
+
         try:
             video = Video.objects.get(pk=video_id)
 
@@ -54,10 +59,15 @@ class LikeCreateView(APIView):
 class LikeDeleteView(APIView):
     permission_classes = [IsAuthenticated]  # Only authenticated users can unlike a video
 
-    def delete(self, request, video_id):
+    def delete(self, request):
         """
         Remove a like from a video by the authenticated user.
         """
+        try:
+            video_id = request.data.get('video_id')
+        except KeyError:
+            return Response({'error': 'video_id is required.'})
+
         try:
             video = Video.objects.get(pk=video_id)
 

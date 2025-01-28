@@ -41,12 +41,18 @@ class VideoSearchView(ListAPIView):
         return Video.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
 
 
-class GetVideoByCategoryListView(ListAPIView):
-    serializer_class = VideoSerializer
+class GetVideoByCategoryAPIView(APIView):
 
-    def get_queryset(self):
-        category_id = self.kwargs.get('category_id')
-        return Video.objects.filter(category_id=category_id)
+    def post(self, request):
+        videos = Video.objects.filter(processing_status="completed").all()
+
+        category = request.data.get('category_id', None)
+        if category:
+            videos = videos.filter(category=category)
+
+        serializer = VideoSerializer(videos, many=True).data
+
+        return Response(serializer, status=200)
 
 
 class CategoryListView(ListAPIView):
@@ -60,4 +66,3 @@ class CreateCategory(CreateAPIView):
     permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-

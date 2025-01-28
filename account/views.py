@@ -54,7 +54,7 @@ class UsersForgotPasswordView(APIView):
         serializer = PasswordResetRequestSerializer(data=request.data)
         if serializer.is_valid():
             email = serializer.validated_data.get('email')
-            user = serializer.validated_data.get('user')
+            user = User.objects.get(email=email)
 
             # --- generate token
             token = int(generate_random_token())

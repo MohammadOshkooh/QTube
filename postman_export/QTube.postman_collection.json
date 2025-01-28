@@ -97,6 +97,14 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},

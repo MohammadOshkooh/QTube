@@ -24,13 +24,22 @@ QTube is a **video-sharing platform** that allows users to:
 ✅ **Video Categorization:** Content is classified into various categories.
 
 ## 🏗️ Technologies Used
+
 🚀 **Framework:** Django + Django REST Framework  
+
 🐍 **Web Server:** Gunicorn  
+
 🐳 **Containerization:** Docker & Docker Compose  
+
 🎭 **Admin Panel:** django-jazzmin  
+
 🔐 **Authentication:** rest_framework_simplejwt  
+
 📜 **Error Logging Middleware:** Logs errors for debugging  
+
 🔄 **Password Recovery:** Temporary token stored in Redis  
+
+
 
 ## 🏗️ Docker Containers
 ```yaml
@@ -42,17 +51,21 @@ services:
   nginx:
 ```
 
+
 ## 🚀 Project Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/MohammadOshkooh/QTube.git
    cd QTube
    ```
+   
 2. Configure environment variables.
+
 3. Run Docker Compose:
    ```bash
    docker-compose up --build
    ```
+
 4. Access the project at `http://localhost:8002`.
 
 ## 🎯 Contribution

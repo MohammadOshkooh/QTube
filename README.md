@@ -8,6 +8,8 @@ QTube is a **video-sharing platform** that allows users to:
 - Interact with content through **comments and likes**.
 - Browse videos categorized into different **genres** like education, entertainment, etc.
 
+**Note:** This project was developed as part of a web development course.
+
 ## ⚙️ Key Features
 ✅ **Video Upload System:** Users can upload videos in any format.
 
